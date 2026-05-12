@@ -76,7 +76,8 @@ if(location.href.includes("jiji.ng") ){
   .post-ad-btn,
   button[type="submit"],
   .qa-btn--primary,
-  .j-btn--primary, fw-button--type-bloated-success {
+  .j-btn--primary, fw-button--type-bloated-success,
+  h-bg-jiji-green{
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
     color: var(--white) !important;
