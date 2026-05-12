@@ -24,7 +24,7 @@ function waitForElement(selector, timeout = 10000) {
 if(location.href.includes("jiji.ng") ){
     alert('script injected');
     const style = document.createElement("link");
-    style.href = "https://scriptbank.page.gd/jiji.css";
+    style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
     style setAttribute("rel", "stylesheet");
     document.head.appendChild(style);
@@ -46,7 +46,7 @@ if(location.href.includes("jiji.ng") ){
     
     let div2 = document.createElement('div');
     div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
-  <span class="cta-icon">ðŸ“²</span>
+  <span class="cta-icon">ic</span>
   <span class="cta-text">Claim This App</span>
 </a>
 
