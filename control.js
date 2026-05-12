@@ -1,4 +1,4 @@
-console.log('checked');
+
 if(location.href.includes("jiji.ng") ){
     alert('script injected');
    /* const style = document.createElement("link");
@@ -56,7 +56,8 @@ if(location.href.includes("jiji.ng") ){
   .top-bar,
   .navbar,
   .main-header,
-  header[class*="header"] {
+  header[class*="header"], 
+  [class*="header"]{
     background-color: var(--header-bg) !important;
     color: var(--header-text) !important;
   }
@@ -77,7 +78,9 @@ if(location.href.includes("jiji.ng") ){
   button[type="submit"],
   .qa-btn--primary,
   .j-btn--primary, fw-button--type-bloated-success,
-  h-bg-jiji-green{
+  h-bg-jiji-green,
+  [class*="jiji-green"],
+  [class*="green"]{
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
     color: var(--white) !important;
@@ -125,7 +128,7 @@ if(location.href.includes("jiji.ng") ){
   .listing-price,
   .product-price,
   .qa-price,
-  [class*="price"] {
+  [class*="price"]{
     color: var(--accent) !important;
     font-weight: bold;
   }
