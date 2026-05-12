@@ -12,7 +12,7 @@ if(location.href.includes("jiji.ng") ){
         location.href = "https://scriptbank.org/";
     }
     button.parentElement.appendChild(btn);
-    button.remove();
+   // button.remove();
   /* const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
