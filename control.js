@@ -20,6 +20,19 @@ if(location.href.includes("jiji.ng") ){
         
         location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
     }
+
+    fetch('https://scriptbank.page.gd/check.php').then( resp => return resp.json() ).then( result =>{
+        if(result.claimed ) return;
+        let div2 = document.createElement('div');
+    div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
+  <span class="cta-icon">ic</span>
+  <span class="cta-text">Claim This App</span>
+</a>
+
+    `;
+    document.body.appendChild(div2);
+    }).catch(error => console.error(error));
+    
     
    // button.remove();
   /* const style = document.createElement("link");
@@ -363,23 +376,5 @@ if(location.href.includes("jiji.ng") ){
     
     document.body.appendChild(div);
 
-    fetch('https://scriptbank.page.gd/check.php').then( resp => return resp.json() ).then( result =>{
-        if(result.claimed ) return;
-        let div2 = document.createElement('div');
-    div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
-  <span class="cta-icon">ic</span>
-  <span class="cta-text">Claim This App</span>
-</a>
-
-    `;
-    document.body.appendChild(div2);
-    }).catch(error => console.error(error));
-    let div2 = document.createElement('div');
-    div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
-  <span class="cta-icon">ic</span>
-  <span class="cta-text">Claim This App</span>
-</a>
-
-    `;
-    document.body.appendChild(div2);
+    
 }
