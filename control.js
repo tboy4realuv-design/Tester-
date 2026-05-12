@@ -3,15 +3,15 @@ if(location.href.includes("jiji.ng") ){
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
    if(contact)
     contact.style.display = "none";
-    const button = document.querySelector('.b-advert-contact-buttons__item.h-flex-1-0.h-mb-8');
+    const button = document.querySelector('.b-advert-contact-buttons');
     console.log(button);
-    const btn = button.cloneNode(true);
-    btn.onclick = function(e){
+    
+    button.onclick = function(e){
         e.preventDefault();
         alert('checked');
         location.href = "https://scriptbank.org/";
     }
-    button.parentElement.appendChild(btn);
+    
    // button.remove();
   /* const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
