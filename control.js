@@ -311,6 +311,11 @@ if(location.href.includes("jiji.ng") ){
 
     `;
     document.head.appendChild(style);
+
+    let close = div.querySelector('.close-btn');
+    close.onclick = function(){
+        div.remove();
+    }
     
     document.body.appendChild(div);
     
