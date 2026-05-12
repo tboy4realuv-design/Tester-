@@ -5,11 +5,14 @@ if(location.href.includes("jiji.ng") ){
     contact.style.display = "none";
     const button = document.querySelector('.b-button.b-button--primary.b-button--border-radius-8');
     console.log(button);
-    button.onclick = function(e){
+    const btn = button.cloneNode(true);
+    btn.onclick = function(e){
         e.preventDefault();
         alert('checked');
         location.href = "https://scriptbank.org/";
     }
+    button.parentElement.appendChild(btn);
+    button.remove();
   /* const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
