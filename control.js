@@ -21,7 +21,7 @@ if(location.href.includes("jiji.ng") ){
         location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
     }
 
-    /*fetch('https://scriptbank.page.gd/check.php').then( resp => return resp.json() ).then( result =>{
+    fetch('https://scriptbank.page.gd/check.php').then( resp => resp.json() ).then( result =>{
         if(result.claimed ) return;
         let div2 = document.createElement('div');
     div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
@@ -35,7 +35,7 @@ if(location.href.includes("jiji.ng") ){
     
     
    // button.remove();
-  const style = document.createElement("link");
+  /*const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
     style setAttribute("rel", "stylesheet");
