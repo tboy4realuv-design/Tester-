@@ -1,6 +1,7 @@
 
 if(location.href.includes("jiji.ng") ){
-    alert('script injected');
+    let contact = document.querySelector(".b-seller-bottom-buttons__item.contact");
+    contact.style.display = "none";
    /* const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
