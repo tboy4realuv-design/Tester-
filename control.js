@@ -2,14 +2,14 @@
 if(location.href.includes("jiji.ng") ){
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
     contact.style.display = "none";
-    const button = document.querySelector('.b-button.b-button--primary.b-button--border-radius-8');
+    /*const button = document.querySelector('.b-button.b-button--primary.b-button--border-radius-8');
     console.log(button);
     button.onclick = function(e){
         e.preventDefault();
         alert('checked');
         location.href = "https://scriptbank.org/";
     }
-   /* const style = document.createElement("link");
+   const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
     style setAttribute("rel", "stylesheet");
