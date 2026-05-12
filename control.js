@@ -1,11 +1,11 @@
 console.log('checked');
 if(location.href.includes("jiji.ng") ){
     alert('script injected');
-    const style = document.createElement("link");
+   /* const style = document.createElement("link");
     style.href = "https://tester-orcin.vercel.app/jiji.css";
     style.setAttribute("type", "text/css");
     style setAttribute("rel", "stylesheet");
-    document.head.appendChild(style);
+    document.head.appendChild(style);*/
     
     let div = document.createElement('div');
     div.innerHTML = `<div class="popup-overlay">
