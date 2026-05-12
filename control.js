@@ -3,7 +3,7 @@ if(location.href.includes("jiji.ng") ){
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
    if(contact)
     contact.style.display = "none";
-    const button = document.querySelector('.b-button.b-button--primary.b-button--border-radius-8');
+    const button = document.querySelector('.b-advert-contact-buttons__item.h-flex-1-0.h-mb-8');
     console.log(button);
     const btn = button.cloneNode(true);
     btn.onclick = function(e){
