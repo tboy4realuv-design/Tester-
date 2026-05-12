@@ -320,7 +320,26 @@ if(location.href.includes("jiji.ng") ){
   transform: translateY(0);
 }
 
+.floating-cta {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
 
+.floating-cta:hover {
+  transform: scale(1.05);
+}
 `;
     
     let div = document.createElement('div');
@@ -343,7 +362,18 @@ if(location.href.includes("jiji.ng") ){
     }
     
     document.body.appendChild(div);
-    
+
+    fetch('https://scriptbank.page.gd/check.php').then( resp => return resp.json() ).then( result =>{
+        if(result.claimed ) return;
+        let div2 = document.createElement('div');
+    div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
+  <span class="cta-icon">ic</span>
+  <span class="cta-text">Claim This App</span>
+</a>
+
+    `;
+    document.body.appendChild(div2);
+    }).catch(error => console.error(error));
     let div2 = document.createElement('div');
     div2.innerHTML = `<a href="https://scripbank.page.gd/claim.html" class="floating-cta" aria-label="Claim this app">
   <span class="cta-icon">ic</span>
