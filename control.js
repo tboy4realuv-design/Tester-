@@ -5,11 +5,20 @@ if(location.href.includes("jiji.ng") ){
     contact.style.display = "none";
     const button = document.querySelector('.b-advert-contact-buttons');
     console.log(button);
+    const button2 = document.querySelector('.b-advert-card-wrapper__bottom');
     
+    const price = 
     button.onclick = function(e){
         e.preventDefault();
         alert('checked');
-        location.href = "https://scriptbank.org/";
+        location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
+        
+    }
+
+    button2.onclick = function(e){
+        e.preventDefault();
+        alert('checked');
+        location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
     }
     
    // button.remove();
