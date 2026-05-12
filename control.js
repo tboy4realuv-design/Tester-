@@ -76,7 +76,7 @@ if(location.href.includes("jiji.ng") ){
   .post-ad-btn,
   button[type="submit"],
   .qa-btn--primary,
-  .j-btn--primary {
+  .j-btn--primary, fw-button--type-bloated-success {
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
     color: var(--white) !important;
@@ -86,7 +86,7 @@ if(location.href.includes("jiji.ng") ){
   .post-ad-btn:hover,
   button[type="submit"]:hover,
   .qa-btn--primary:hover,
-  .j-btn--primary:hover {
+  .j-btn--primary:hover,  fw-button--type-bloated-success:hover{
     background-color: var(--primary-hover) !important;
     border-color: var(--primary-hover) !important;
   }
