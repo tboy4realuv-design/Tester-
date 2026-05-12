@@ -7,17 +7,17 @@ if(location.href.includes("jiji.ng") ){
     console.log(button);
     const button2 = document.querySelector('.b-advert-card-wrapper__bottom');
     
-    const price = 
+    const price = document.querySelector('.qa-advert-price-view-value').getAttribute('content');
     button.onclick = function(e){
         e.preventDefault();
-        alert('checked');
+        
         location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
         
     }
 
     button2.onclick = function(e){
         e.preventDefault();
-        alert('checked');
+        
         location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
     }
     
