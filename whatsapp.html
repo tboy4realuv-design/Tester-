@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Share to Unlock | WhatsApp Reward</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: linear-gradient(145deg, #f9f3e6 0%, #ffe6c9 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 550px;
+            width: 100%;
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            padding: 32px 24px 48px;
+            transition: all 0.2s ease;
+        }
+
+        .emoji-big {
+            font-size: 64px;
+            display: inline-block;
+            background: #fef5e7;
+            padding: 20px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #2c2c2c;
+        }
+
+        .sub {
+            color: #f5a623;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        .progress-section {
+            background: #f0f0f0;
+            border-radius: 60px;
+            padding: 6px;
+            margin: 24px 0;
+        }
+
+        .progress-bar {
+            background: #25D366;
+            width: 0%;
+            height: 12px;
+            border-radius: 60px;
+            transition: width 0.3s;
+        }
+
+        .counter {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 16px 0 8px;
+        }
+
+        .share-link-box {
+            background: #f8f9fc;
+            padding: 14px 20px;
+            border-radius: 60px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            word-break: break-all;
+            margin: 20px 0;
+            border: 1px solid #e2e2e2;
+            color: #1e2a3e;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 16px 24px;
+            width: 100%;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 20px 0 16px;
+            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.97);
+            background-color: #1da15b;
+        }
+
+        .confirm-btn {
+            background: #ffcf4a;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .reward-box {
+            background: #fef1cf;
+            border-radius: 36px;
+            padding: 20px;
+            margin: 28px 0 16px;
+            border: 1px solid #ffe1a0;
+        }
+
+        .hidden-reward {
+            filter: blur(4px);
+            user-select: none;
+            transition: 0.2s;
+        }
+
+        .revealed {
+            filter: blur(0);
+        }
+
+        .tiny-note {
+            font-size: 12px;
+            color: #7f7f7f;
+            margin-top: 24px;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        footer {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" id="app">
+    <div class="emoji-big">🎁</div>
+    <h1>Share to Unlock</h1>
+    <div class="sub">Refer & win your reward</div>
+
+    <div class="progress-section">
+        <div class="progress-bar" id="progressFill" style="width: 0%;"></div>
+    </div>
+    <div class="counter">
+        <span id="shareCount">0</span> / 10 shares
+    </div>
+    <p>Share this link with 10 WhatsApp contacts to unlock your reward.</p>
+
+    <div class="share-link-box" id="shareLinkDisplay">
+        https://superoof.page.gd/whatsapp.html?i=1
+    </div>
+
+    <button class="whatsapp-btn" id="whatsappShareBtn">
+        📲 Share on WhatsApp
+    </button>
+
+    <button class="confirm-btn" id="confirmBtn">
+        ✓ I've shared — confirm
+    </button>
+
+    <div class="reward-box" id="rewardBox">
+        <div style="font-size: 32px;">🎉</div>
+        <strong>✨ Your secret reward ✨</strong>
+        <div id="rewardContent" class="hidden-reward">
+            🎁 50% off coupon + free sticker pack
+        </div>
+    </div>
+
+    <div class="tiny-note">
+        * After sharing to 10 distinct contacts, reward will be revealed.
+    </div>
+    <footer>Clicking "Share" opens WhatsApp — once shared, confirm below.</footer>
+</div>
+
+<script>
+    // ---------- STATE ----------
+    let shareCount = 0;
+    const STORAGE_KEY = 'whatsapp_share_count';
+    const REQUIRED_SHARES = 10;
+    const SHARE_URL = encodeURIComponent('https://superoof.page.gd/whatsapp.html?i=1');
+    const WHATSAPP_MESSAGE = `Hey! I just unlocked a secret reward 🎁 — check this out: ${decodeURIComponent(SHARE_URL)}`;
+
+    // DOM elements
+    const shareCountSpan = document.getElementById('shareCount');
+    const progressFill = document.getElementById('progressFill');
+    const rewardContentDiv = document.getElementById('rewardContent');
+    const whatsappBtn = document.getElementById('whatsappShareBtn');
+    const confirmBtn = document.getElementById('confirmBtn');
+
+    // Load saved count from localStorage
+    function loadShareCount() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && !isNaN(parseInt(saved))) {
+            shareCount = Math.min(REQUIRED_SHARES, parseInt(saved));
+        } else {
+            shareCount = 0;
+        }
+        updateUI();
+    }
+
+    // Save current count
+    function persistCount() {
+        localStorage.setItem(STORAGE_KEY, shareCount);
+    }
+
+    // Check & reveal reward if threshold reached
+    function checkAndReveal() {
+        if (shareCount >= REQUIRED_SHARES) {
+            rewardContentDiv.classList.add('revealed');
+            rewardContentDiv.classList.remove('hidden-reward');
+        } else {
+            rewardContentDiv.classList.add('hidden-reward');
+            rewardContentDiv.classList.remove('revealed');
+        }
+    }
+
+    // Update UI (counter, progress bar, reward blur)
+    function updateUI() {
+        shareCountSpan.innerText = shareCount;
+        const percent = (shareCount / REQUIRED_SHARES) * 100;
+        progressFill.style.width = `${percent}%`;
+        checkAndReveal();
+        persistCount();
+    }
+
+    // Increment share manually (used by confirm)
+    function addShare() {
+        if (shareCount < REQUIRED_SHARES) {
+            shareCount++;
+            updateUI();
+            return true;
+        }
+        return false;
+    }
+
+    // Build WhatsApp deep link
+    function openWhatsApp() {
+        const whatsappUrl = `https://wa.me/?text=${WHATSAPP_MESSAGE}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Event handlers
+    whatsappBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openWhatsApp();
+    });
+
+    confirmBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const wasLocked = shareCount < REQUIRED_SHARES;
+        const success = addShare();
+        
+        if (success && wasLocked && shareCount === REQUIRED_SHARES) {
+            // Just reached 10 – reward revealed
+            setTimeout(() => {
+                alert('🎉 Congratulations! Your reward has been revealed: 50% off + free sticker pack!');
+            }, 50);
+        } else if (success) {
+            // Just a regular confirm, not crossing threshold
+            setTimeout(() => {
+                alert(`✅ Confirmed! Shared → ${shareCount}/${REQUIRED_SHARES} contacts.`);
+            }, 50);
+        } else if (shareCount >= REQUIRED_SHARES) {
+            alert('🎁 You have already unlocked the reward! Refresh the page to see it.');
+            checkAndReveal();
+        }
+    });
+
+    // Initialize
+    loadShareCount();
+
+    // Optional: if already revealed on page load, ensure reward is visible
+    if (shareCount >= REQUIRED_SHARES) {
+        rewardContentDiv.classList.add('revealed');
+        rewardContentDiv.classList.remove('hidden-reward');
+    }
+</script>
+</body>
+      </html>
