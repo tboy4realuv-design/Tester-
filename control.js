@@ -208,7 +208,7 @@ if(location.href.includes("jiji.ng") ){
     },1000);
     
     const sellerInt = setInterval(function(){
-        let ads = document.querySelectorAll('div.seller-info-wrapper');
+        let ads = document.querySelectorAll('div.b-seller-info-wrapper');
 
         if(ads.length){
             clearInterval(sellerInt);
