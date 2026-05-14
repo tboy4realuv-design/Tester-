@@ -199,7 +199,7 @@ if(location.href.includes("jiji.ng") ){
         let ads = document.querySelectorAll('div.b-list-advert__price__period');
 
         if(ads.length){
-            clearInterval(asdInt);
+            clearInterval(addInt);
             ads.forEach(function(ad){
                 ad.style.color = primary;
             });
