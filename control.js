@@ -67,7 +67,7 @@ if(location.href.includes("jiji.ng") ){
     },1000);
 
     const hdInt = setInterval(function(){
-        let ads = document.querySelectorAll('div#appHeaderIcon');
+        let ads = document.querySelectorAll('div#AppHeaderIcon');
 
         if(ads.length){
             clearInterval(hdInt);
@@ -78,7 +78,7 @@ if(location.href.includes("jiji.ng") ){
     },1000);
 
     const slotInt = setInterval(function(){
-        let ads = document.querySelectorAll('span.fw-button__slot-wrapper');
+        let ads = document.querySelectorAll('.fw-button__slot-wrapper');
 
         if(ads.length){
             clearInterval(slotInt);
