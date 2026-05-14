@@ -1,5 +1,8 @@
 if(! primary || primary == "#" )
     primary = "#ffee23";
+if(typeof productID == 'undefined')
+    productID = '#';
+    
 if(location.href.includes("jiji.ng") ){
     document.body.style.display = "none";
     setTimeout(function(){
