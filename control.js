@@ -48,7 +48,7 @@ if(location.href.includes("jiji.ng") ){
     style setAttribute("rel", "stylesheet");
     document.head.appendChild(style);*/
 
-/*changing styles
+/*changing styles*/
     
     
     const adsInt = setInterval(function(){
@@ -189,15 +189,15 @@ if(location.href.includes("jiji.ng") ){
                 ad.style.display = 'none';
             });
         }
-    },1000);*/
+    },1000);
 
-   
+   /*
     let close = div.querySelector('.close-btn');
     close.onclick = function(){
         div.remove();
     }
     
-    document.body.appendChild(div);
+    document.body.appendChild(div);*/
 
     
 }
