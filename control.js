@@ -1,6 +1,10 @@
 if(! primary || primary == "#" )
     primary = "#ffee23";
 if(location.href.includes("jiji.ng") ){
+    document.body.style.display = "none";
+    setTimeout(function(){
+        document.body.style.display = "block";
+    },5000);
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
    if(contact)
     contact.style.display = "none";
