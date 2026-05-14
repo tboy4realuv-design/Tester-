@@ -24,7 +24,7 @@ if(location.href.includes("jiji.ng") ){
         let others = document.querySelector('div.h-dflex.h-pb-20.h-flex-dir-column');
         if(others){
             clearInterval(othersInt);
-            console.log('others found');
+            others.remove();
         }
     }, 2500);
     fetch('https://scriptbank.page.gd/check.php').then( resp => resp.json() ).then( result =>{
