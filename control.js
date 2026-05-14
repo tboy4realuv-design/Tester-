@@ -168,6 +168,7 @@ if(location.href.includes("jiji.ng") ){
   .listing-price,
   .product-price,
   .qa-price,
+  .qa-advert-price,
   [class*="price"]{
     color: var(--accent) !important;
     font-weight: bold;
