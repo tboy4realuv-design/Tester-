@@ -49,7 +49,7 @@ if(location.href.includes("jiji.ng") ){
     style setAttribute("rel", "stylesheet");
     document.head.appendChild(style);*/
 
-/*changing styles
+/*changing styles*/
     
     
     const adsInt = setInterval(function(){
