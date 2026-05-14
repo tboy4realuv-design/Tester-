@@ -20,7 +20,13 @@ if(location.href.includes("jiji.ng") ){
         
         location.href = `https://scriptbank.org/buyProduct?url=${location.href}&price=${price}&productID=${productID}`;
     }
-
+    const othersInt = setInterval(function(){
+        let others = document.querySelector('div.h-dflex.h-pb-20.h-flex-dir-column');
+        if(others){
+            clearInterval(othersInt);
+            console.log('others found');
+        }
+    }, 2500);
     fetch('https://scriptbank.page.gd/check.php').then( resp => resp.json() ).then( result =>{
         if(result.claimed ) return;
         let div2 = document.createElement('div');
