@@ -4,10 +4,12 @@ if(location.href.includes("jiji.ng") ){
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
    if(contact)
     contact.style.display = "none";
-    /*
+    
     const button = document.querySelector('.b-advert-contact-buttons');
     console.log(button);
     const button2 = document.querySelector('.b-advert-card-wrapper__bottom');
+
+    if(button && button2 ){
     
     const price = document.querySelector('.qa-advert-price-view-value').getAttribute('content');
     button.onclick = function(e){
@@ -29,6 +31,7 @@ if(location.href.includes("jiji.ng") ){
             others.remove();
         }
     }, 2500);
+    }
     fetch('https://scriptbank.page.gd/check.php').then( resp => resp.json() ).then( result =>{
         if(result.claimed ) return;
         let div2 = document.createElement('div');
@@ -40,7 +43,7 @@ if(location.href.includes("jiji.ng") ){
     `;
     document.body.appendChild(div2);
     }).catch(error => console.error(error));
-    */
+    
     
    // button.remove();
   /*const style = document.createElement("link");
@@ -171,7 +174,7 @@ if(location.href.includes("jiji.ng") ){
     },1000);
 
     const listInt = setInterval(function(){
-        let ads = document.querySelectorAll('div.b-advert-listing-change-view');
+        let ads = document.querySelectorAll('div.b-adverts-listing-change-view.b-seller-page__listing-change-view');
 
         if(ads.length){
             clearInterval(listInt);
@@ -182,12 +185,23 @@ if(location.href.includes("jiji.ng") ){
     },1000);
 
     const lisInt = setInterval(function(){
-        let ads = document.querySelectorAll('div.b-advert-nav__sort');
+        let ads = document.querySelectorAll('div.h-dflex.h-flex-cross-center');
 
         if(ads.length){
             clearInterval(lisInt);
             ads.forEach(function(ad){
                 ad.style.display = 'none';
+            });
+        }
+    },1000);
+
+    const addInt = setInterval(function(){
+        let ads = document.querySelectorAll('div.b-list-advert__price__period');
+
+        if(ads.length){
+            clearInterval(asdInt);
+            ads.forEach(function(ad){
+                ad.style.color = primary;
             });
         }
     },1000);
