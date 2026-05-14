@@ -4,6 +4,7 @@ if(location.href.includes("jiji.ng") ){
     let contact = document.querySelector('.b-seller-bottom-buttons__item.b-seller-bottom-buttons__item--contact');
    if(contact)
     contact.style.display = "none";
+    /*
     const button = document.querySelector('.b-advert-contact-buttons');
     console.log(button);
     const button2 = document.querySelector('.b-advert-card-wrapper__bottom');
@@ -39,7 +40,7 @@ if(location.href.includes("jiji.ng") ){
     `;
     document.body.appendChild(div2);
     }).catch(error => console.error(error));
-    
+    */
     
    // button.remove();
   /*const style = document.createElement("link");
