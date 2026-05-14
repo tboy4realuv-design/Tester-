@@ -166,9 +166,10 @@ if(location.href.includes("jiji.ng") ){
         let ads = document.querySelectorAll('div.qa-advert-price');
 
         if(ads.length){
-            clearInterval(prInt);
+            
             ads.forEach(function(ad){
-                ad.style.color = primary;
+                if( ad.style.color != primary )
+                    ad.style.color = primary;
             });
         }
     },1000);
