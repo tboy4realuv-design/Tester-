@@ -206,6 +206,18 @@ if(location.href.includes("jiji.ng") ){
             });
         }
     },1000);
+    
+    const sellerInt = setInterval(function(){
+        let ads = document.querySelectorAll('div.seller-info-wrapper');
+
+        if(ads.length){
+            clearInterval(sellerInt);
+            ads.forEach(function(ad){
+                ad.remove();
+            });
+        }
+    },1000)
+    
 
    /*
     let close = div.querySelector('.close-btn');
